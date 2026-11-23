@@ -1,0 +1,1 @@
+{ "name": "task-map", "version": "0.1.0", "description": "A pane that always shows the task map (taskmap.md) beside the chat", "types": "./types/index.d.ts" }

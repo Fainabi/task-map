@@ -1,0 +1,5 @@
+{
+  "name": "task-map",
+  "owner": { "name": "Fainabi" },
+  "plugins": [{ "name": "task-map", "source": "./" }]
+}
