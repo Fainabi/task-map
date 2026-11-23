@@ -1,8 +1,14 @@
 # task-map
 
-A Claude Code mod that keeps a **Task Map** pane beside the chat, so you always see where you are: the goal, the steps (done / now / next) and a small shape diagram.
+A Claude Code mod that keeps a **Task Map** pane beside the chat, so you always see where you are, overall and inside each task.
 
-The pane shows `taskmap.md` from your project's folder. Claude (or you) edits that file, and the pane redraws after each edit and at the end of every turn. Run `/map` to open the pane again if you close it, or if your terminal is too narrow for it to open by itself.
+It has three views:
+
+- **Overview** (the default): the goal, then every task as a tree, with the steps of each unfinished task under it. The current task is marked `← now`, and a task waiting on unfinished work shows ⏳.
+- **Task list**: one line per task, with its dependencies and a note. Press `o` to switch between Overview and this list.
+- **Local map**: press `1`–`9` (or click a task) to open that task's own map, then `b` to go back.
+
+Give the pane focus first with ctrl+x tab or a click. `/map` opens the pane again if you close it, or if your terminal is too narrow for it to open by itself. The pane redraws after each edit to the map files and at the end of every turn.
 
 ## Install
 
@@ -22,14 +28,28 @@ claude plugin install task-map --marketplace Fainabi/task-map
 
 In the desktop app: click + next to the prompt box, then Plugins, Add marketplace with `Fainabi/task-map`, then Add plugin.
 
-## Example taskmap.md
+## The map files
+
+The global map is `taskmap.md` in your project's folder. Tasks go under `## Tasks`, one per line: a status (✅ done, 🔵 now, ⬜ to do), a name, then optionally `needs:` and a note after `|`.
 
 ```markdown
 # 🎯 Goal
 Ship the login page.
 
+## Tasks
+- ✅ form — the login form
+- 🔵 api — needs: form | wire up the backend
+- ⬜ tests — needs: api
+
+## Shape
+form ──▶ api ──▶ tests
+```
+
+Each task can have a local map at `tasks/<name>.md`. Its `- ✅ / 🔵 / ⬜` lines are the steps shown in the Overview:
+
+```markdown
 ## Steps
-- ✅ Planned the form
-- 🔵 **Now:** Wire up the API
-- ⬜ Next: Add tests
+- ✅ Pick the endpoint
+- 🔵 Call it from the form
+- ⬜ Handle errors
 ```
