@@ -1,1 +1,1 @@
-{ "name": "task-map", "version": "0.2.0", "description": "A Task Map pane beside the chat: overview tree of all tasks, dependencies, and a local map per task", "types": "./types/index.d.ts" }
+{ "name": "task-map", "version": "0.3.0", "description": "A Task Map pane beside the chat: overview tree of all tasks, dependencies, and a local map per task", "types": "./types/index.d.ts" }

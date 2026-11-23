@@ -8,6 +8,10 @@ It has three views:
 - **Task list**: one line per task, with its dependencies and a note. Press `o` to switch between Overview and this list.
 - **Local map**: press `1`–`9` (or click a task) to open that task's own map, then `b` to go back.
 
+At the bottom of the pane, a boxed **Now** status shows where you are, how to check it, the suggested next step and what you learned. It comes from the `## Now` section of `taskmap.md`.
+
+Every turn, the mod also adds a short note to Claude's instructions, asking it to keep the maps and the Now block current. You don't have to remind it.
+
 Give the pane focus first with ctrl+x tab or a click. `/map` opens the pane again if you close it, or if your terminal is too narrow for it to open by itself. The pane redraws after each edit to the map files and at the end of every turn.
 
 ## Install
@@ -33,6 +37,12 @@ In the desktop app: click + next to the prompt box, then Plugins, Add marketplac
 The global map is `taskmap.md` in your project's folder. Tasks go under `## Tasks`, one per line: a status (✅ done, 🔵 now, ⬜ to do), a name, then optionally `needs:` and a note after `|`.
 
 ```markdown
+## Now
+📍 **Where we are:** The form is done; wiring the API
+✅ **How to check:** Submit the form and watch the network tab
+👉 **Suggested next:** Handle errors
+💡 **Learned:** Keep each step small
+
 # 🎯 Goal
 Ship the login page.
 
